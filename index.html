@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>My Blog</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #ffe6ff, #e6f0ff);
+        }
+        header {
+            background: linear-gradient(to right, #ff66cc, #6600ff);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 32px;
+            font-weight: bold;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+        }
+        .container {
+            width: 80%;
+            margin: 30px auto;
+        }
+        .post {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 12px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.15);
+            border-left: 8px solid #ff66cc;
+        }
+        .post h2 {
+            margin-top: 0;
+            color: #6600cc;
+        }
+        .post .date {
+            color: #777;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .post a {
+            color: #0077cc;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .post a:hover {
+            text-decoration: underline;
+        }
+
+        /* Game styling */
+        #game-box {
+            margin-top: 15px;
+            padding: 15px;
+            background: #f0e6ff;
+            border-radius: 10px;
+            border: 2px solid #cc99ff;
+        }
+        #game-output {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #6600cc;
+        }
+        button {
+            background: #cc66ff;
+            color: white;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background: #b84de6;
+        }
+    </style>
+</head>
+<body>
+
+<header>My Blog</header>
+
+<div class="container">
+
+    <div class="post">
+        <h2>i love cats</h2>
+        <div class="date">Posted on February 4, 2026</div>
+        <p>i wish i had a cat ther are so cute</p>
+        <a href="#">Read more</a>
+    </div>
+
+    <div class="post">
+        <h2>my youtube</h2>
+        <div class="date">Posted on February 4, 2026</div>
+        <p>it starlikesdog i post videos</p>
+        <a href="#">Read more</a>
+    </div>
+
+    <!-- Guessing Game Post -->
+    <div class="post">
+        <h2>Guessing Game</h2>
+        <div class="date">Posted on February 4, 2026</div>
+        <p>Try to guess the number between 1 and 100!</p>
+
+        <div id="game-box">
+            <input id="guess" type="number" placeholder="Enter your guess">
+            <button onclick="checkGuess()">Submit</button>
+            <div id="game-output"></div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    let secret = Math.floor(Math.random() * 100) + 1;
+
+    function checkGuess() {
+        let g = Number(document.getElementById("guess").value);
+        let out = document.getElementById("game-output");
+
+        if (g < secret) out.textContent = "Too low!";
+        else if (g > secret) out.textContent = "Too high!";
+        else out.textContent = "You got it!";
+    }
+</script>
+
+</body>
+</html>
